@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="home_label_welcome">Welcome!</string>
+    <string name="home_label_click">Click on one of the images to show the details</string>
+    <string name="home_qtd_photos">%d photos</string>
+</resources>

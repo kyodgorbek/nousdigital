@@ -1,0 +1,93 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+
+apply from: '../buildsystem/information.gradle'
+
+android {
+    compileSdkVersion app.compileSdkVersion
+
+    defaultConfig {
+
+        minSdkVersion app.minSdkVersion
+        targetSdkVersion app.targetSdkVersion
+
+        versionCode app.versionCode
+        versionName app.versionName
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        multiDexEnabled true
+
+        vectorDrawables.useSupportLibrary = true
+    }
+
+    buildTypes {
+
+        debug {
+            versionNameSuffix "-debug"
+            debuggable true
+        }
+
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+
+    }
+
+    flavorDimensions dimensions.env
+    productFlavors {
+        prod {
+            buildConfigField "String", "WEB_API_URL", WEB_API_URL_PROD
+            dimension dimensions.env
+        }
+
+        dev {
+            buildConfigField "String", "WEB_API_URL", WEB_API_URL_DEV
+            dimension dimensions.env
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    implementation project(':domain')
+    implementation project(':core')
+
+    // Persistence:
+    debugImplementation generalDeps.debugDb
+
+    implementation generalDeps.kotlinJdk
+    implementation generalDeps.koin
+    implementation generalDeps.jwt
+    implementation generalDeps.retrofit
+    implementation generalDeps.gsonConverter
+    implementation generalDeps.retrofitMoshiConverter
+
+    implementation generalDeps.viewModel
+    implementation generalDeps.core
+    implementation generalDeps.koinAc
+    implementation generalDeps.reflect
+
+    implementation generalDeps.coroutinesCore
+    implementation generalDeps.coroutinesAndroid
+    implementation generalDeps.coroutinesAdapter
+
+    implementation generalDeps.moshi
+
+    // Logging:
+    api generalDeps.stetho
+    implementation generalDeps.stethoOkhttp3
+    implementation generalDeps.okhttp3LoggingInterceptor
+    implementation generalDeps.timber
+
+    testImplementation testDeps.junit
+    testImplementation testDeps.assertj
+    testImplementation generalDeps.json
+
+    androidTestImplementation androidTestDeps.junitrunner
+    androidTestImplementation androidTestDeps.espresso
+
+}

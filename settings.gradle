@@ -1,0 +1,8 @@
+rootProject.name='International Software'
+include ':app'
+include ':splash'
+include ':core'
+include ':data'
+include ':domain'
+include ':home'
+include ':imgdetails'

@@ -1,0 +1,7 @@
+ext {
+    APPLICATION_ID= 'com.internationalsoftware'
+    APPLICATION_ID_DEV = 'com.dev.internationalsoftware'
+
+    WEB_API_URL_PROD = '\"https://cloud.nousdigital.net/\"'
+    WEB_API_URL_DEV = '\"https://cloud.nousdigital.net/\"'
+}

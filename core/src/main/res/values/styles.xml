@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="android:statusBarColor">@color/blue_0094FF</item>
+        <item name="colorSecondary">@color/colorSecondary</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:windowContentTransitions">true</item>
+    </style>
+
+    <style name="ToolbarColoredBackArrow" parent="AppTheme">
+        <item name="android:textColorSecondary">@color/grey_525151</item>
+    </style>
+
+    <style name="ActionBarTextAppearance" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:fontFamily">@font/museosans_500</item>
+        <item name="android:textSize">19sp</item>
+    </style>
+</resources>
